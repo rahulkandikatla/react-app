@@ -4,7 +4,7 @@ import './index.css';
 import CountriesFilterBar from './CountriesFilterBar.js';
 import Countries from './Countries.js';
 import Header from './Header.js';
-import CountryDetails from './CountryDetails.js';
+
 import {withRouter} from 'react-router-dom';
 
 class CountriesDashboardApp extends React.Component{

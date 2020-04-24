@@ -74,6 +74,7 @@ import'./components/CarsFleet/index.css';
 import'./components/TodoList/index.css';
 import {TodoList,OperationsTodoList} from './components/TodoList/index.js'
 import CountriesDashboardApp from './components/CountriesDashboardApp/index.js';
+import EmojisGame from './components/EmojisGame/index'
 import Home from './components/Home.js';
 import CountryDetails from './components/CountriesDashboardApp/CountryDetails.js'
  
@@ -116,6 +117,7 @@ class App extends React.Component{
           
           <Route path="/countries-dashboard-app/" children={<CountryDetails onChangeTheme={this.onChangeTheme} selectedTheme={this.state.selectedTheme}/>} />
           
+          <Route path='/emojis-game' children={<EmojisGame />} /> 
           <Route path="/" children={<Home />} />
       
         </Switch>

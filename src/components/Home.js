@@ -17,7 +17,10 @@ export default function Home(){
           <Link to="/form-components">Form Components</Link>
           </li>
           <li>
-          <Link to="/countries-dashboard-app">Countries Dashboard App</Link>
+          <Link to="/countries-dashboard-app">Countries DashBoard App</Link>
+          </li>
+          <li>
+          <Link to="/emojis-game">Emojis Game</Link>
           </li>
         </ul>
         </div>

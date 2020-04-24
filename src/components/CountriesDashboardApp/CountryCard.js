@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card,Flag,Image,Details,CountryName,Content,Category,Value } from './Styles.js';
 import { useHistory } from "react-router";
 import {withRouter, Link,BrowserRouter as Router} from 'react-router-dom';
 
@@ -15,17 +16,17 @@ class CountryCard extends React.Component{
     render(){
          
         return(
-        <div className="country-card" onClick={this.navigateToCountryDetailsPage}>
-        <div className="flag-container-in-card">
-       <img src={this.props.countryDetails.flag} alt="Avatar" />
-       </div>
-       <div className="country-details">
-       <h4>{this.props.countryDetails.name}</h4>
-       <div><b>Population:</b> <span>{this.props.countryDetails.population}</span></div> 
-       <div><b>Region:</b> <span>{this.props.countryDetails.region}</span></div> 
-       <div><b>Capital:</b> <span>{this.props.countryDetails.capital}</span></div> 
-        </div>
-       </div>
+        <Card onClick={this.navigateToCountryDetailsPage}>
+        <Flag >
+       <Image src={this.props.countryDetails.flag} alt="Avatar" />
+       </Flag>
+       <Details >
+       <CountryName>{this.props.countryDetails.name}</CountryName>
+       <Content><Category>Population:</Category> <Value>{this.props.countryDetails.population}</Value></Content> 
+       <Content><Category>Region:</Category> <Value>{this.props.countryDetails.region}</Value></Content> 
+       <Content><Category>Capital:</Category> <Value>{this.props.countryDetails.capital}</Value></Content> 
+        </Details>
+       </Card>
             )
     }
 }
