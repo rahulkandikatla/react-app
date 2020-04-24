@@ -70,6 +70,7 @@ import {
 } from "react-router-dom";
 import {Car,CarsList} from './components/CarsFleet/index.js';
 import FormComponents from './components/FormComponents/index.js';
+import CounterPage from './components/CounterPage/index.js';
 import'./components/CarsFleet/index.css';
 import'./components/TodoList/index.css';
 import {TodoList,OperationsTodoList} from './components/TodoList/index.js'
@@ -77,8 +78,22 @@ import CountriesDashboardApp from './components/CountriesDashboardApp/index.js';
 import EmojisGame from './components/EmojisGame/index'
 import Home from './components/Home.js';
 import CountryDetails from './components/CountriesDashboardApp/CountryDetails.js'
- 
+
+import {observer} from 'mobx-react';
+import themeStore from './ThemeStore/index.js' 
+
+@observer 
 class App extends React.Component{
+  
+
+  
+  getCurrentTheme=()=>{
+    return themeStore.selectedTheme;
+  }
+  setCurrentTheme=(theme)=>{
+    themeStore.setCurrentTheme(theme);
+  }
+  
   static themeOptions={
             light:{
                 id:"0",
@@ -96,8 +111,8 @@ class App extends React.Component{
     }
   }
   onChangeTheme=()=>{
-        if(this.state.selectedTheme==='Light') this.setState({selectedTheme:'Dark'});
-        else this.setState({selectedTheme:'Light'});
+        if(this.getCurrentTheme()==='light') this.setCurrentTheme('dark');
+        else this.setCurrentTheme('light');
     
     }
   render(){
@@ -105,6 +120,8 @@ class App extends React.Component{
     <Router>
       
         <Switch>
+          <Route path="/counter-page" children={<CounterPage />}/>
+        
           <Route path="/rgb" children={<Rgb />} />
             
           <Route path="/todo-list" children={<OperationsTodoList />} />
@@ -113,9 +130,9 @@ class App extends React.Component{
             
           <Route path="/form-components" children={<FormComponents />} />
           
-          <Route exact path="/countries-dashboard-app" children={<CountriesDashboardApp onChangeTheme={this.onChangeTheme} selectedTheme={this.state.selectedTheme}/>} />
+          <Route exact path="/countries-dashboard-app" children={<CountriesDashboardApp onChangeTheme={this.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>} />
           
-          <Route path="/countries-dashboard-app/" children={<CountryDetails onChangeTheme={this.onChangeTheme} selectedTheme={this.state.selectedTheme}/>} />
+          <Route path="/countries-dashboard-app/" children={<CountryDetails onChangeTheme={this.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>} />
           
           <Route path='/emojis-game' children={<EmojisGame />} /> 
           <Route path="/" children={<Home />} />
