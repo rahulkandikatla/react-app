@@ -87,16 +87,18 @@ class CountryDetails extends React.Component {
             <WrapperRow>
             <H3 > { this.state.countryDetails.name } </H3>  
             <DetailsContainer>
-            <WrapperColumn >
-            <Content > < Category > Native Name: </Category> <Value>{this.state.countryDetails.nativeName}</Value > </Content> <Content > < Category > Population: </Category> <Value>{this.state.countryDetails.population}</Value > </Content>
-            <Content > < Category > Region: </Category> <Value>{this.state.countryDetails.region}</Value > </Content>
-            <Content > < Category > Sub Region: </Category> <Value>{this.state.countryDetails.subregion}</Value > </Content> < Content > < Category > Capital: </Category> <Value>{this.state.countryDetails.capital}</Value > </Content> < WrapperColumn > </WrapperColumn >
-            <Content > < Category > Top Level Domain: </Category> {this.state.countryDetails.topLevelDomain}</Content >
-            <Content > < Category > Currencies: </Category> {this.state.countryDetails.currencies[0].name}</Content >
-            <Content > < Category > Languages: </Category> {languages}</Content>
+            <WrapperColumn>
+            <Content> <Category> Native Name: </Category> <Value>{this.state.countryDetails.nativeName}</Value > </Content> 
+            <Content> <Category> Population: </Category> <Value>{this.state.countryDetails.population}</Value > </Content>
+            <Content> <Category> Region: </Category> <Value>{this.state.countryDetails.region}</Value > </Content>
+            <Content> <Category> Sub Region: </Category> <Value>{this.state.countryDetails.subregion}</Value > </Content> 
+            <Content> <Category> Capital: </Category> <Value>{this.state.countryDetails.capital}</Value > </Content> <WrapperColumn> </WrapperColumn >
+            <Content> <Category> Top Level Domain: </Category> {this.state.countryDetails.topLevelDomain}</Content >
+            <Content> <Category> Currencies: </Category> {this.state.countryDetails.currencies[0].name}</Content >
+            <Content> <Category> Languages: </Category> {languages}</Content>
             </WrapperColumn> 
             </DetailsContainer > 
-            <div className = "border-countries" > <Category > Border Countries: < Break /> </Category> {borders.map(each=><ButtonWithShadow className={`border-country-buttons ${this.props.selectedTheme.toLowerCase()}`} onClick={this.navigate}>{each}</ButtonWithShadow > )} </div> 
+            <div className = "border-countries" > <Category > Border Countries: <Break /> </Category> {borders.map(each=><ButtonWithShadow className={`border-country-buttons ${this.props.selectedTheme.toLowerCase()}`} onClick={this.navigate}>{each}</ButtonWithShadow > )} </div> 
             </WrapperRow > 
             </Container> 
     </CountryDetailsWrapper >

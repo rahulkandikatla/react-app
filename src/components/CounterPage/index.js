@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-
 import stores from '../../stores'
+
 const counterStore = stores.counterStore
 
 @observer

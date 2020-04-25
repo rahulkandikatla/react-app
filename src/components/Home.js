@@ -7,6 +7,9 @@ export default function Home(){
           <li>
           <Link to="/counter-page">Counter Page</Link>
           </li>
+           <li>
+          <Link to="/counter-app">Counter App</Link>
+          </li>
           <li>
           <Link to="/rgb">RGB App</Link>
           </li>

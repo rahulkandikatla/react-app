@@ -78,7 +78,7 @@ import CountriesDashboardApp from './components/CountriesDashboardApp/index.js';
 import EmojisGame from './components/EmojisGame/index'
 import Home from './components/Home.js';
 import CountryDetails from './components/CountriesDashboardApp/CountryDetails.js'
-
+import CounterApp from'./components/CounterApp/';
 import {observer} from 'mobx-react';
 import themeStore from './ThemeStore/index.js' 
 
@@ -121,6 +121,8 @@ class App extends React.Component{
       
         <Switch>
           <Route path="/counter-page" children={<CounterPage />}/>
+          
+          <Route path="/counter-app" children={<CounterApp />}/>
         
           <Route path="/rgb" children={<Rgb />} />
             
