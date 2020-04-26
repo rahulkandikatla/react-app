@@ -70,7 +70,7 @@ import {
 } from "react-router-dom";
 import {Car,CarsList} from './components/CarsFleet/index.js';
 import FormComponents from './components/FormComponents/index.js';
-import CounterPage from './components/CounterPage/index.js';
+//import CounterPage from './components/CounterPage/index.js';
 import'./components/CarsFleet/index.css';
 import'./components/TodoList/index.css';
 import {TodoList,OperationsTodoList} from './components/TodoList/index.js'
@@ -78,7 +78,7 @@ import CountriesDashboardApp from './components/CountriesDashboardApp/index.js';
 import EmojisGame from './components/EmojisGame/index'
 import Home from './components/Home.js';
 import CountryDetails from './components/CountriesDashboardApp/CountryDetails.js'
-import CounterApp from'./components/CounterApp/';
+import CounterApp from'./components/CounterApp';
 import {observer} from 'mobx-react';
 import themeStore from './ThemeStore/index.js' 
 
@@ -120,7 +120,6 @@ class App extends React.Component{
     <Router>
       
         <Switch>
-          <Route path="/counter-page" children={<CounterPage />}/>
           
           <Route path="/counter-app" children={<CounterApp />}/>
         
