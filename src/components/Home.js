@@ -17,6 +17,9 @@ export default function Home(){
           <Link to="/todo-list">Todo list</Link>
           </li>
           <li>
+          <Link to="/mobx-todo-api">MobxTodos API</Link>
+          </li>
+          <li>
           <Link to="/cars-fleet">Cars Fleet</Link>
           </li>
           <li>

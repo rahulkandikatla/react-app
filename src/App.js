@@ -79,14 +79,14 @@ import EmojisGame from './components/EmojisGame/index'
 import Home from './components/Home.js';
 import CountryDetails from './components/CountriesDashboardApp/CountryDetails.js'
 import CounterApp from'./components/CounterApp';
-import {observer} from 'mobx-react';
-import themeStore from './ThemeStore/index.js' 
+import {observer, Provider} from 'mobx-react';
+import themeStore from './ThemeStore/index.js';
+import LoadingPage from './components/MobxTodosApi/LoadingPage.js';
+import stores from './stores/index';
 
 @observer 
 class App extends React.Component{
-  
-
-  
+   
   getCurrentTheme=()=>{
     return themeStore.selectedTheme;
   }
@@ -117,7 +117,8 @@ class App extends React.Component{
     }
   render(){
   return (
-    <Router>
+    <Provider {...stores}>
+     <Router>
       
         <Switch>
           
@@ -126,7 +127,9 @@ class App extends React.Component{
           <Route path="/rgb" children={<Rgb />} />
             
           <Route path="/todo-list" children={<OperationsTodoList />} />
-            
+          
+          <Route path="/mobx-todo-api" children={<LoadingPage />} />  
+
           <Route path="/cars-fleet" children={<CarsList />} />
             
           <Route path="/form-components" children={<FormComponents />} />
@@ -140,7 +143,8 @@ class App extends React.Component{
       
         </Switch>
       
-    </Router>
+     </Router>
+    </Provider>
   );
 }
 }
