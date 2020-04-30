@@ -8,7 +8,7 @@ class TodoService {
     this.api = create({ baseURL: 'https://jsonplaceholder.typicode.com/' })
   }
 
-  async getTodos() {
+  getTodos=async ()=> {
     return networkCallWithApisauce(this.api, 'todos', '', apiMethods.get)
   }
 }

@@ -5,14 +5,13 @@ import {Todo} from '../models/Todo'
 
 
 class TodoStore {
-     @observable getTodoListAPIStatus= API_INITIAL;
-     @observable getTodoListAPIError = null;
+     @observable getTodoListAPIStatus
+     @observable getTodoListAPIError
      @observable todos ;
      @observable selected;
     
      constructor(props){
          this.init() 
-         this.fetchedData(props)
          this.todosAPIService=props
      }
 
@@ -23,16 +22,20 @@ class TodoStore {
 
   }
   @action.bound
-  setGetTodoListAPIError(error) {
+  setTodoListAPIError(error) {
     // assign API Error to local observable
-    this.getTodoListAPIError = error;
+    this.getTodoListAPIError=error;
   }
 
   @action.bound
   setGetTodoListAPIResponse(response) {
+    
     // assign API Response to local observable
-    this.todoList = response;
+    this.todoList = response.map(each=>new Todo(each));
   }
+
+
+
 
   @action.bound
   getTodoList() {
@@ -40,23 +43,17 @@ class TodoStore {
     const getTodosPromise = this.todosAPIService.getTodos();
     return bindPromiseWithOnSuccess(getTodosPromise)
       .to(this.setGetTodoListAPIStatus, this.setGetTodoListAPIResponse)
-      .catch(this.setGetTodoListAPIError);
+      .catch(this.setTodoListAPIError);
   }
      
      @action.bound
      init(){
          this.todos=[];
          this.selected='ALL';
+        this.getTodoListAPIStatus=API_INITIAL;
+        this.getTodoListAPIError=null;
      }
 
-    
-
-     @action.bound
-     async fetchedData(props){
-         const data= await props.getTodos()
-         this.getTodoList()
-         this.todos=data.map(each=>new Todo(each))
-     }
      @action.bound
      onAddTodo(newTodo){
          const id=Math.random().toString();

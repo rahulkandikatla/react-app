@@ -8,17 +8,17 @@ import {MobxTodosApi} from '../MobxTodosApi';
 class LoadingPage extends React.Component{
      
     componentDidMount(){
-        this.props.todoStore.getTodoList();
+        this.doNetworkCalls()
     }
    
     doNetworkCalls=()=>{
         this.props.todoStore.init()
         this.props.todoStore.getTodoList();
-        
     }
-    renderTodoList=()=>{
-        return(<MobxTodosApi />)
-    }
+
+    renderTodoList=observer(()=>{
+        return(<MobxTodosApi/>)
+    });
    render(){
        const {todoStore}=this.props;
        return(<LoadingWrapperWithFailure

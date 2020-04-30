@@ -17,7 +17,7 @@ class MobxTodosApi extends React.Component{
        }
     }
     renderTodosList=()=>{
-    return this.props.todoStore.todos.map((each)=><Wrapper key={each.id}><InputTag type="checkbox" onClick={each.onCompleteTodo} checked={each.isCompleted}/> <InputTag type='text' defaultValue={each.title}  disabled={each.isCompleted} isCompleted={each.isCompleted}></InputTag><DeleteButton id={each.id} onClick={this.removeTodo}>X</DeleteButton></Wrapper>)
+    return this.props.todoStore.todoList.map((each)=><Wrapper key={each.id}><InputTag type="checkbox" onClick={each.onCompleteTodo} checked={each.isCompleted}/> <InputTag type='text' defaultValue={each.title}  disabled={each.isCompleted} isCompleted={each.isCompleted}></InputTag><DeleteButton id={each.id} onClick={this.removeTodo}>X</DeleteButton></Wrapper>)
     }
     render(){
         return(    
