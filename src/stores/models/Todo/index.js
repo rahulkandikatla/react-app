@@ -1,8 +1,7 @@
 import React from 'react';
-import {observer} from 'mobx-react';
 import {observable, action} from 'mobx';
 
-@observer
+
 class Todo extends React.Component{
      id
      @observable title

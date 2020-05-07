@@ -3,24 +3,34 @@ import { APIStatus, API_INITIAL } from "@ib/api-constants";
 import {observable, action} from 'mobx';
 import {Todo} from '../models/Todo'
 
-
 class TodoStore {
      @observable getTodoListAPIStatus
      @observable getTodoListAPIError
-     @observable todos ;
+     @observable todoList ;
      @observable selected;
     
-     constructor(props){
-         this.init() 
-         this.todosAPIService=props
+     constructor(todoService){
+        this.init() 
+        this.todosAPIService=todoService
+        
      }
 
      @action.bound
-   setGetTodoListAPIStatus(status) {
-    // assign API Status to local observable
-    this.getTodoListAPIStatus = status;
+     setGetTodoListAPIStatus(status) {
+     // assign API Status to local observable
+     
+     this.getTodoListAPIStatus = status;
 
   }
+
+  @action.bound
+  init(){
+     this.todoList=[];
+     this.selected='ALL';
+     this.getTodoListAPIStatus=API_INITIAL;
+     this.getTodoListAPIError=null;
+  }
+
   @action.bound
   setTodoListAPIError(error) {
     // assign API Error to local observable
@@ -46,13 +56,7 @@ class TodoStore {
       .catch(this.setTodoListAPIError);
   }
      
-     @action.bound
-     init(){
-         this.todos=[];
-         this.selected='ALL';
-        this.getTodoListAPIStatus=API_INITIAL;
-        this.getTodoListAPIError=null;
-     }
+    
 
      @action.bound
      onAddTodo(newTodo){
@@ -63,12 +67,12 @@ class TodoStore {
              completed:false,
         }
        const object=new Todo(todo);
-       this.todos.push(object)
+       this.todoList.push(object)
      }
      
     @action.bound
     onRemoveTodo(id){
-         this.todos=this.todos.filter((each)=>each.id!=id);
+         this.todoList=this.todoList.filter((each)=>each.id!=id);
     }
 }
 

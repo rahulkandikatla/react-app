@@ -83,6 +83,9 @@ import {observer, Provider} from 'mobx-react';
 import themeStore from './ThemeStore/index.js';
 import LoadingPage from './components/MobxTodosApi/LoadingPage.js';
 import stores from './stores/index';
+import {AuthRoute} from './SignInPage/routes/';
+import {ProductRoutes} from './ProductPage/routes/'
+
 
 @observer 
 class App extends React.Component{
@@ -121,7 +124,7 @@ class App extends React.Component{
      <Router>
       
         <Switch>
-          
+
           <Route path="/counter-app" children={<CounterApp />}/>
         
           <Route path="/rgb" children={<Rgb />} />
@@ -139,6 +142,10 @@ class App extends React.Component{
           <Route path="/countries-dashboard-app/" children={<CountryDetails onChangeTheme={this.onChangeTheme} selectedTheme={this.getCurrentTheme()}/>} />
           
           <Route path='/emojis-game' children={<EmojisGame />} /> 
+
+          {AuthRoute}
+          {ProductRoutes}
+
           <Route path="/" children={<Home />} />
       
         </Switch>

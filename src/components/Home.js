@@ -1,5 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {E_COMMERCE_SIGN_IN_PATH} from '../SignInPage/constants';
+import {E_COMMERCE_PRODUCTS_PATH} from '../ProductPage/constants';
+
 export default function Home(){
     return(
         <div>
@@ -27,6 +30,12 @@ export default function Home(){
           </li>
           <li>
           <Link to="/emojis-game">Emojis Game</Link>
+          </li>
+          <li>
+          <Link to={E_COMMERCE_SIGN_IN_PATH}>E-Commerce App</Link>
+          </li>
+          <li>
+          <Link to={E_COMMERCE_PRODUCTS_PATH}></Link>
           </li>
         </ul>
         </div>
