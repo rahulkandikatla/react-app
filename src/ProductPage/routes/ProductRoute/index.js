@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {ProductPage} from '../../components/ProductPage'
 import {observer, inject} from 'mobx-react';
-import { action } from "mobx";
+import { action, computed } from "mobx";
 import {Product} from '../../components/Product'
 import {Wrapper} from './styledComponents'
 
@@ -18,8 +18,7 @@ class ProductRoute extends Component{
     }
     @action.bound
     renderProductList(){
-        console.log(this.props.productStore.products,11333)
-   return (<Wrapper>{this.props.productStore.products.map(eachProduct=><Product details={eachProduct}/>)}</Wrapper>
+   return (<Wrapper>{this.props.productStore.products.map(eachProduct=><Product key={Math.random().toString()} details={eachProduct}/>)}</Wrapper>
     )
     }
     render(){

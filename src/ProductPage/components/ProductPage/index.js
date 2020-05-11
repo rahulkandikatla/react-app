@@ -20,9 +20,9 @@ class ProductPage extends Component{
         renderProductList}=this.props
         return <Wrapper>
           <Header />
-          <SizeFilterAndProductsList>
-          <SizeFilter />
-          <LoadingWrapperWithFailure
+          <SizeFilterAndProductsList >
+          <SizeFilter/>
+          <LoadingWrapperWithFailure 
            apiStatus={getProductListAPIStatus}
            apiError={getProductListAPIError}
            onRetryClick={doNetworkCalls}

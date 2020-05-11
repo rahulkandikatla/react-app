@@ -22,7 +22,10 @@ class AuthStore {
 
     @action.bound
     setUserSignInAPIResponse(props){
-        history.push(E_COMMERCE_PRODUCTS_PATH);
+      //  const { history } = this.props;
+        console.log(props);
+           //history.push(E_COMMERCE_PRODUCTS_PATH);
+       // history.push(E_COMMERCE_PRODUCTS_PATH);
     }
 
     @action.bound
@@ -33,6 +36,7 @@ class AuthStore {
     @action.bound
     setGetUserSignInAPIError(error){
         this.getUserSignInAPIError=error;
+        console.log(error)
     }
 
     @action.bound
