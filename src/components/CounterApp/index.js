@@ -9,7 +9,7 @@ const counterAppStore=stores.counterAppStore;
 class CounterApp extends Component{
 
 handleIncrement=()=>{
-   counterAppStore.incrementCount();
+  counterAppStore.incrementCount();
 }
 
 handleDecrement=()=>{
@@ -31,3 +31,6 @@ onChangeCount=(event)=>{
 }
 
 export default CounterApp;
+
+
+
