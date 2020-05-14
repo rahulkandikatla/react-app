@@ -24,7 +24,7 @@ class ProductStore {
         this.getProductListAPIStatus=API_INITIAL;
         this.getProductListAPIError=null;
         this.productList=new Map();
-        this.sizeFilter=['XS','S','M','L','XL','XXL'];
+        this.sizeFilter=[];
         this.sortBy='SELECT';
     }
 
@@ -59,35 +59,47 @@ class ProductStore {
     onChangeSortBy(){
 
     }
-    
+
+    @action.bound
+    setSizeFilter(sizesArray,sizeFilter){
+        console.log('hi')
+         if(sizeFilter.length==0) return true;
+         else{
+             console.log(sizeFilter,123)
+             sizesArray.forEach(eachSize=>{if(sizeFilter.includes(eachSize)){return true;}});
+             return false
+         }
+    }
+
     @action.bound
     onSelectSize(e){
         const size=e.target.value;
         const {sizeFilter}=this;
      if(sizeFilter.includes(size)){
          const index=sizeFilter.indexOf(size);
-         sizeFilter.pop(index);
+         console.log(index,'index')
+         sizeFilter.splice(index, 1);
          console.log(sizeFilter)
      }
      else{
          sizeFilter.push(size);
+         console.log(sizeFilter)
      }
-    }
+        }
 
     @computed
     get products(){
-        return this.datalist;
+        return this.sortedAndFilteredProducts;
     }
 
     @computed
-    get datalist(){
-        const {productList, sizeFilter}=this;
-        let data=[];
+    get sortedAndFilteredProducts(){
+
+        const {productList, sizeFilter, setSizeFilter,sortBy}=this;
+        let data = [];
         
-        //productList.values()
-       // console.log(values.map(each=>each.availableSizes))
-       productList.forEach(each=>{if(each.availableSizes.filter(eachSize=>sizeFilter.includes(eachSize)).length!=0){data.push(each)}}) 
-       console.log(data)
+       productList.forEach(each=>{if(setSizeFilter(each.availableSizes,sizeFilter)){data.push(each)}}) 
+       
         return data;
     }
 }
