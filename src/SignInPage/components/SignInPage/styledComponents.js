@@ -15,8 +15,8 @@ const H2=styled.div`
 ${tw`font-bold mb-4`}
 `;
 const SignInButton=styled.input`
-${tw`w-full my-2 p-2 bg-gray-900 text-white cursor-pointer`}
-
+${tw`w-full my-2 p-2 text-white cursor-pointer`}
+background-color:${props=>props.disabled? '#b8bfc7':'#24292e'}
 `;
 
 export {Wrapper, Input, Container, H2, SignInButton}

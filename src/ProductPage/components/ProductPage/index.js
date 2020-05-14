@@ -4,6 +4,7 @@ import {Header} from '../Header';
 import {SizeFilter} from "../SizeFilter";
 import {observer} from "mobx-react";
 import LoadingWrapperWithFailure from '../../../components/common/LoadingWrapperWithFailure';
+import { ProductStore } from "../../stores/ProductStore";
 
 
 
@@ -11,6 +12,7 @@ import LoadingWrapperWithFailure from '../../../components/common/LoadingWrapper
 class ProductPage extends Component{
 
     render(){
+      console.log('productPage')
       const {getProductListAPIStatus,
         getProductListAPIError,
         productList,
@@ -20,9 +22,11 @@ class ProductPage extends Component{
         renderProductList}=this.props
         return <Wrapper>
           <Header />
-          <SizeFilterAndProductsList>
-          <SizeFilter />
-          <LoadingWrapperWithFailure
+          <SizeFilterAndProductsList >
+     
+          <SizeFilter/>
+          <div>{productList.length}</div>
+          <LoadingWrapperWithFailure 
            apiStatus={getProductListAPIStatus}
            apiError={getProductListAPIError}
            onRetryClick={doNetworkCalls}

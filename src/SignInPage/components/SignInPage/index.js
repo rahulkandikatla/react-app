@@ -22,7 +22,7 @@ class SignInPage extends Component{
             <H2>Sign in</H2>    
             <Input ref={this.userNameRef} onChange={onChangeUserName} type="text" placeholder='Username' value={username} ></Input>
             <Input onChange={onChangePassword} type="password" placeholder='Password' value={password}></Input>
-            <SignInButton onClick={onSubmit} data-testid='sign-in-button' type="submit" value="Sign in"></SignInButton>
+            <SignInButton disabled={username===''||password===''} onClick={onSubmit} data-testid='sign-in-button' type="submit" value="Sign in"></SignInButton>
             </Container>
         </Wrapper>
     }

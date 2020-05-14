@@ -2,6 +2,7 @@ import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
 import { APIStatus, API_INITIAL, API_FAILED, API_SUCCESS } from "@ib/api-constants";
 import { observable, action } from 'mobx';
 import {E_COMMERCE_PRODUCTS_PATH} from '../../../ProductPage/constants';
+import { setAccessToken } from "../../utils/StorageUtils";
 
 
 class AuthStore {
@@ -22,7 +23,10 @@ class AuthStore {
 
     @action.bound
     setUserSignInAPIResponse(props){
-        history.push(E_COMMERCE_PRODUCTS_PATH);
+      //  const { history } = this.props;
+        setAccessToken(props[0].access_token);
+           //history.push(E_COMMERCE_PRODUCTS_PATH);
+       // history.push(E_COMMERCE_PRODUCTS_PATH);
     }
 
     @action.bound
@@ -33,6 +37,7 @@ class AuthStore {
     @action.bound
     setGetUserSignInAPIError(error){
         this.getUserSignInAPIError=error;
+        console.log(error)
     }
 
     @action.bound

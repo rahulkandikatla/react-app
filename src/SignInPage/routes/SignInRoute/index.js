@@ -39,7 +39,7 @@ class SignInRoute extends Component{
     onSubmit(){
         this.props.authStore.userSignIn();
         const { history } = this.props;
-          history.push(E_COMMERCE_PRODUCTS_PATH);
+           history.push(E_COMMERCE_PRODUCTS_PATH);
 
 
     }
