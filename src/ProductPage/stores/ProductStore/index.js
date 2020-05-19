@@ -61,14 +61,18 @@ class ProductStore {
     }
 
     @action.bound
-    setSizeFilter(sizesArray,sizeFilter){
-        console.log('hi')
-         if(sizeFilter.length==0) return true;
-         else{
-             console.log(sizeFilter,123)
-             sizesArray.forEach(eachSize=>{if(sizeFilter.includes(eachSize)){return true;}});
-             return false
+   setSizeFilter(sizesArray,length){
+        const {sizeFilter}=this;
+         if(length==0){ 
+             return true
+            }
+        else{
+             //console.log(sizesArray)
+             //console.log(length)
+             sizesArray.forEach(eachSize=>{if(sizeFilter.includes(eachSize)){console.log(eachSize,123);return true}});
+             
          }
+         
     }
 
     @action.bound
@@ -77,7 +81,7 @@ class ProductStore {
         const {sizeFilter}=this;
      if(sizeFilter.includes(size)){
          const index=sizeFilter.indexOf(size);
-         console.log(index,'index')
+         //console.log(index,'index')
          sizeFilter.splice(index, 1);
          console.log(sizeFilter)
      }
@@ -98,8 +102,8 @@ class ProductStore {
         const {productList, sizeFilter, setSizeFilter,sortBy}=this;
         let data = [];
         
-       productList.forEach(each=>{if(setSizeFilter(each.availableSizes,sizeFilter)){data.push(each)}}) 
-       
+       productList.forEach(each=>{if(setSizeFilter(each.availableSizes,sizeFilter.length)) data.push(each)}) 
+       console.log(data)
         return data;
     }
 }

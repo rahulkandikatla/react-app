@@ -20,10 +20,9 @@ class ProductPage extends Component{
         sortBy,
         doNetworkCalls,
         renderProductList}=this.props
-        return <Wrapper>
+        return<Wrapper>
           <Header />
           <SizeFilterAndProductsList >
-     
           <SizeFilter/>
           <div>{productList.length}</div>
           <LoadingWrapperWithFailure 
@@ -34,6 +33,7 @@ class ProductPage extends Component{
        />
        </SizeFilterAndProductsList>
         </Wrapper>
+    
     }
 }
 
