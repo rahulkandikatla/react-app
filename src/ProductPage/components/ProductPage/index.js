@@ -3,7 +3,7 @@ import {Wrapper, SizeFilterAndProductsList} from './styledComponents';
 import {Header} from '../Header';
 import {SizeFilter} from "../SizeFilter";
 import {observer} from "mobx-react";
-import LoadingWrapperWithFailure from '../../../components/common/LoadingWrapperWithFailure';
+import LoadingWrapperWithFailure from '../../../Common/LoadingWrapperWithFailure';
 import { ProductStore } from "../../stores/ProductStore";
 
 
