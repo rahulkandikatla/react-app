@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {E_COMMERCE_SIGN_IN_PATH} from '../SignInPage/constants';
-import {E_COMMERCE_PRODUCTS_PATH} from '../ProductPage/constants';
+import {SignInPagePath} from '../Authentication/constants';
+import {e_CommercePath} from '../E-Commerce/constants';
 import {PRACTICE_ADVANCED_CONCEPTS}from '../constants/RouteConstants';
 
 export default function Home(){
@@ -33,10 +33,10 @@ export default function Home(){
           <Link to="/emojis-game">Emojis Game</Link>
           </li>
           <li>
-          <Link to={E_COMMERCE_SIGN_IN_PATH}>E-Commerce App</Link>
+          <Link to={SignInPagePath}>E-Commerce App</Link>
           </li>
           <li>
-          <Link to={E_COMMERCE_PRODUCTS_PATH}></Link>
+          <Link to={e_CommercePath}></Link>
           </li>
           <li>
           <Link to={PRACTICE_ADVANCED_CONCEPTS}> Practise Advanced Concepts</Link>

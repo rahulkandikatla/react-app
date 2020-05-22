@@ -22,8 +22,8 @@ import {observer, Provider} from 'mobx-react';
 import themeStore from './ThemeStore/index.js';
 import LoadingPage from './components/MobxTodosApi/LoadingPage.js';
 import stores from './stores/index';
-import {AuthRoute} from './SignInPage/routes/';
-import {ProductRoutes} from './ProductPage/routes/'
+import {AuthRoute} from './Authentication/routes/';
+import ProductsPage from './E-Commerce/components/ProductPage'
 import {PracticeAdvancedConceptsRoutes}from './Common/routes';
 
 
@@ -83,10 +83,11 @@ class App extends React.Component{
           
           <Route path='/emojis-game' children={<EmojisGame />} /> 
           
+          <Route path='/ecommerce-store/products' children={<ProductsPage />} />
+
           {PracticeAdvancedConceptsRoutes}
           {AuthRoute}
-          {ProductRoutes}
-
+          
 
           <Route path="/" children={<Home />} />
       

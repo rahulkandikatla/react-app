@@ -10,8 +10,8 @@ class Navbar extends React.Component{
                   <GameName>Emoji Game</GameName>
                 </Child>
                 <Child>
-        <Score>Score: {this.props.score}</Score>
-        <Score>Top Score: {this.props.topScore}</Score>
+            <Score>Score: {this.props.score}</Score>
+            <Score>Top Score: {this.props.topScore}</Score>
                   <Theme onClick={this.props.onChangeTheme}>{this.props.selectedTheme} Theme</Theme>
                 </Child>
             </NavWrapper>

@@ -1,5 +1,5 @@
-import styled from "./node_modules/@emotion/styled";
-import tw from "./node_modules/tailwind.macro";
+import styled from "@emotion/styled";
+import tw from "tailwind.macro";
 
 export const NoDataViewContainer = styled.div`
   ${tw`text-center m-4`}

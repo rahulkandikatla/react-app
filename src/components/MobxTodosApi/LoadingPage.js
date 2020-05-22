@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingWrapperWithFailure from '../../Common/LoadingWrapperWithFailure';
+import LoadingWrapperWithFailure from '../../components/common/LoadingWrapperWithFailure';
 import {observer, inject} from 'mobx-react';
 import {MobxTodosApi} from '../MobxTodosApi';
 

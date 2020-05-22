@@ -1,6 +1,6 @@
 import React from  'react';
 import {observer, inject} from 'mobx-react';
-import {Wrapper, InputTag, DeleteButton} from './styledComponents';
+import {Wrapper, InputTag, DeleteButton,Heading,TaskWrapper} from './styledComponents';
 import LoadingPage from './LoadingPage.js'
 
 @inject('todoStore')
@@ -17,11 +17,12 @@ class MobxTodosApi extends React.Component{
        }
     }
     renderTodosList=()=>{
-    return this.props.todoStore.todoList.map((each)=><Wrapper key={each.id}><InputTag type="checkbox" onClick={each.onCompleteTodo} checked={each.isCompleted}/> <InputTag type='text' defaultValue={each.title}  disabled={each.isCompleted} isCompleted={each.isCompleted}></InputTag><DeleteButton id={each.id} onClick={this.removeTodo}>X</DeleteButton></Wrapper>)
+    return this.props.todoStore.todoList.map((each)=><TaskWrapper key={each.id}><InputTag type="checkbox" onClick={each.onCompleteTodo} checked={each.isCompleted}/> <InputTag type='text' defaultValue={each.title}  disabled={each.isCompleted} isCompleted={each.isCompleted}></InputTag><DeleteButton id={each.id} onClick={this.removeTodo}>X</DeleteButton></TaskWrapper>)
     }
     render(){
         return(    
         <Wrapper>
+            <Heading>todos</Heading>
             <InputTag onKeyPress={this.onChangeHandler} type='text' placeholder='What needs to be done ?'></InputTag>
             {this.renderTodosList()}
         </Wrapper>
