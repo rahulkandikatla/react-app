@@ -9,7 +9,7 @@ import { withRouter, Redirect } from "react-router-dom";
 import LoadingWrapperWithFailure from '../../../components/common/LoadingWrapperWithFailure'
 import NoDataView from '../../../components/common/NoDataView'
 import ProductCart from '../../../E-CommerceCart/components/ProductCart'
-
+import {Pagination} from '../Pagination'
 import {SizeFilter} from '../SizeFilter'
 import Header from '../Header'
 import ProductList from '../ProductList'
@@ -24,7 +24,7 @@ class ProductsPage extends React.Component {
     }
 
     doNetworkCalls = () => {
-        this.props.productStore.getProductListAPI()
+        this.props.productStore.getProductListAPI(3,0)
     }
 
     onClickSignOut = () => {
@@ -64,8 +64,9 @@ class ProductsPage extends React.Component {
             onRetryClick={this.doNetworkCalls}
             renderSuccessUI={this.renderProductList}
             />
-            
+         <Pagination />   
         </FilterAndProducts>
+        
         </Page>)
     }
 }

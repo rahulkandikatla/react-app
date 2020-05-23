@@ -10,8 +10,8 @@ class ProductService {
         this.api=create({baseURL:URL.BaseURL})
     }
     
-    getProductListAPI=()=>{
-        return networkCallWithApisauce(this.api,productEndPoint,{},apiMethods.get)
+    getProductListAPI=(limit,offset)=>{   
+        return networkCallWithApisauce(this.api,`?limit=${limit}&offset=${offset}`,{},apiMethods.get)
     }
 }
 

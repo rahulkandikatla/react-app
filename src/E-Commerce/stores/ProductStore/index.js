@@ -3,6 +3,8 @@ import {bindPromiseWithOnSuccess} from '@ib/mobx-promise'
 import { API_INITIAL } from "@ib/api-constants";
 import Product from '../model/ProductModel'
 
+
+
 class ProductStore{
     @observable productList 
     @observable getProductListAPIStatus
@@ -10,6 +12,9 @@ class ProductStore{
     @observable productAPIService
     @observable sizeFilter=[]
     @observable sortBy
+    @observable offset
+    @observable limit
+    @observable total
     
     
     constructor(productService){
@@ -23,16 +28,38 @@ class ProductStore{
         this.sortBy="random"
         this.getProductListAPIStatus=API_INITIAL
         this.getProductListAPIError=null
+        this.limit=3;
+        this.offset=0;
     }
     
     
     @action.bound
     setProductListResponse(response){
-    this.productList=response.map(each=>{
+    this.productList=response.products.map(each=>{
         return new Product(each)
         })
+    this.total=response.total    
+    }
+    @action.bound
+    increaseOffset(){
+        console.log('incClicked')
+        let {offset,limit,total}=this;
+       if(offset<=total-limit){
+            this.offset+=limit;
+            this.getProductListAPI()
+       }
     }
     
+    @action.bound
+    decreaseOffset(){
+        console.log('decClicked')
+        let {offset,limit}=this;
+       if(offset>0){
+             this.offset-=limit;
+             this.getProductListAPI()
+        } 
+    }
+
     @action.bound
     setGetProductListAPIStatus(status){
         this.getProductListAPIStatus=status
@@ -46,7 +73,7 @@ class ProductStore{
     
     @action.bound
     getProductListAPI(){
-        const productsPromise=this.productAPIService.getProductListAPI()
+        const productsPromise=this.productAPIService.getProductListAPI(this.limit,this.offset)
         
         return bindPromiseWithOnSuccess(productsPromise)
             .to(this.setGetProductListAPIStatus,this.setProductListResponse)
