@@ -16,7 +16,7 @@ const authService = new AuthService()
 const authStore = new AuthStore(authService)
 const productService = new ProductService()
 const productStore = new ProductStore(productService)
-const cartStore=new CartStore()
+const cartStore=new CartStore(productStore)
 
 export default {
    counterStore, counterAppStore, todoStore, authService, authStore, productService, productStore, cartStore

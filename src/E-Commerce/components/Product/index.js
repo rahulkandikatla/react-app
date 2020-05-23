@@ -31,7 +31,7 @@ class Product extends React.Component{
         const installments=this.props.product.installmentsCount;
         const chunks=Math.round(price/installments,2);
         return(<Card>
-            {this.props.product.isFreeShipping?<Shipping>Free Shipping</Shipping>:undefined}
+            {this.props.product.isFreeShipping&&<Shipping>Free Shipping</Shipping>}
             <Image src={image} alt='image'/>
             <Title>{title}</Title>
             <Cost>
